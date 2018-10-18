@@ -2,13 +2,13 @@ $(document).ready(function() {
   let files, series, nonseries;
   getStatistics();
   $.when(
-    $.getJSON('https://raw.githubusercontent.com/HackeSta/atom-icons/master/.travis/files.json', function(data) {
+    $.getJSON('https://raw.githubusercontent.com/HackeSta/atom-icons/master/.travis/files.json',{_: new Date().getTime()}, function(data) {
       files = data;
     }),
-    $.getJSON('https://raw.githubusercontent.com/HackeSta/atom-icons/master/.travis/series.json', function(data) {
+    $.getJSON('https://raw.githubusercontent.com/HackeSta/atom-icons/master/.travis/series.json',{_: new Date().getTime()}, function(data) {
       series = data;
     }),
-    $.getJSON('https://raw.githubusercontent.com/HackeSta/atom-icons/master/.travis/nonseries.json', function(data) {
+    $.getJSON('https://raw.githubusercontent.com/HackeSta/atom-icons/master/.travis/nonseries.json',{_: new Date().getTime()}, function(data) {
       nonseries = data;
     })
   ).then(function(){
@@ -135,7 +135,7 @@ function getTitle(title){
 }
 
 function getStatistics(){
-  $.getJSON('https://raw.githubusercontent.com/HackeSta/atom-icons/master/.travis/stats.json', function(json) {
+  $.getJSON('https://raw.githubusercontent.com/HackeSta/atom-icons/master/.travis/stats.json',{_: new Date().getTime()}, function(json) {
       $("#count_icons").html(json.icons);
       $("#count_contributors").html(json.contributors);
       $("#count_stars").html(json.stars);
